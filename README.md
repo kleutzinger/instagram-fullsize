@@ -1,2 +1,1 @@
-# fullsize-instagram
-Chrome extension to view fullsized images on Instagram
+Simple Chrome extension to allowing you to view full size Instagram photos with a right click.
