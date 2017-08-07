@@ -1,7 +1,10 @@
 function toFull(link){
-	takenby = link.indexOf("?taken-by=");
+	console.log("making full: ", link);
+	takenby = link.indexOf("taken-by=");
 	if (takenby > -1){
-		fullLink = link.substring(0,takenby-1) + "/media/?size=l";
+		slashidx = link.lastIndexOf("/");
+		fullLink = link.substring(0,slashidx) + "/media/?size=l";
+		console.log("full: ", fullLink);
 		return fullLink;
 	}
 	return link;
@@ -9,7 +12,7 @@ function toFull(link){
 
 linkCallback = function(word){
 	var url = word.pageUrl;
-	if (url.indexOf("?taken-by=")!=-1){
+	if (url.indexOf("taken-by=")!=-1){
 		chrome.tabs.create({url: toFull(url)});
 		return 0;
 	}
